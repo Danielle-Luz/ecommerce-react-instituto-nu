@@ -4,6 +4,11 @@ import { theme } from "../../../styles/theme";
 export const CatalogueProductStyled = styled.li`
   border: 1px solid ${({theme : iTheme}) => theme.colors.grey[2]};
 
+  div {
+    background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
+    width: 100%;
+  }
+
   h2 {
     color: ${({theme : iTheme}) => theme.colors.grey[0]};
     font-size: 18px;
