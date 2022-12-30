@@ -8,8 +8,8 @@ export interface iTheme {
 
 export const theme : iTheme = {
   colors: {
-    grey: ["333333", "828282", "BDBDBD", "E0E0E0", "F5F5F5"],
-    primary: ["27AE60", "21A759"]
+    grey: ["#333333", "#828282", "#BDBDBD", "#E0E0E0", "#F5F5F5"],
+    primary: ["#27AE60", "#21A759"]
   },
   radius: "8px"
 }
