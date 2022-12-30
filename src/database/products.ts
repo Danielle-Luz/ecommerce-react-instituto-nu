@@ -6,8 +6,9 @@ import cocaCola from "../assets/img/catalogo/coca-cola.svg";
 import fantaGuarana from "../assets/img/catalogo/fanta-guarana.svg";
 import milkshakeChocolate from "../assets/img/catalogo/milkshake-chocolate.svg";
 import milkshakeOvomaltine from "../assets/img/catalogo/milkshake-chocolate.svg";
+import { iCatalogueProduct } from "./iCatalogueProduct";
 
-export const products = [
+export const products : iCatalogueProduct[] = [
   {
     img: hamburguer,
     title: "Hamburguer",
