@@ -10,7 +10,7 @@ export function CatalogueProduct ({img, title, price, category} : iCatalogueProd
       </div>
       <article>
         <h2>{title}</h2>
-        <span className="catalogue-product__price">{price}</span>
+        <span className="catalogue-product__price">{price.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}</span>
         <span className="catalogue-product__category">{category}</span>
       </article>
     </CatalogueProductStyled>

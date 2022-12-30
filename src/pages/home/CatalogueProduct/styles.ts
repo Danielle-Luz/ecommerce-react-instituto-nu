@@ -9,7 +9,7 @@ export const CatalogueProductStyled = styled.li`
       height: 150px;
       width: 100%;
     }
-    
+
     background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
     width: 100%;
   }
@@ -22,7 +22,7 @@ export const CatalogueProductStyled = styled.li`
 
   .catalogue-product__price {
     color: ${({theme : iTheme}) => theme.colors.primary[0]};
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
   }
   
@@ -35,7 +35,7 @@ export const CatalogueProductStyled = styled.li`
   article {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     padding: 20px;
   }
 `
