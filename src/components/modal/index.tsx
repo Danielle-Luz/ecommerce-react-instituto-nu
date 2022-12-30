@@ -31,15 +31,24 @@ export function Modal({ setToggleModal }: iModalProps) {
           ) : (
             <ul>
               {cart.map((cartProduct) => (
-                <CartProduct product={cartProduct} />
+                <CartProduct key={cartProduct.id} product={cartProduct} />
               ))}
             </ul>
           )}
         </article>
-        <article className="modal__total">
-          <h3>Total</h3>
-          <span>{cart.reduce((total, cartProduct) => total += cartProduct.price, 0).toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}</span>
-        </article>
+        {cart?.length != 0 && (
+          <article className="modal__total">
+            <h3>Total</h3>
+            <span>
+              {cart
+                .reduce((total, cartProduct) => (total += cartProduct.price), 0)
+                .toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+            </span>
+          </article>
+        )}
       </ModalStyled>
     </ModalWrapperStyled>
   );
