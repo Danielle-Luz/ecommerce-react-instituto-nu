@@ -59,7 +59,8 @@ export const CartProductStyled = styled.li`
 
     span {
       background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
-      padding: 0 15px;
+      font-size: 14px;
+      padding: 2px 15px;
     }
   }
 `

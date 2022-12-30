@@ -1,5 +1,6 @@
-import { iCartProduct } from "../../../providers/ProductProvider";
+import { iCartProduct, ProductContext } from "../../../providers/ProductProvider";
 import { CartProductStyled } from "./styles";
+import { useContext } from "react";
 import trashIcon from "../../../assets/img/icons/trash.svg";
 
 interface iCartProductProps {
@@ -7,6 +8,8 @@ interface iCartProductProps {
 }
 
 export function CartProduct({ product }: iCartProductProps) {
+  const {addProduct, removeProduct} = useContext(ProductContext);
+
   return (
     <CartProductStyled>
       <div>
@@ -18,11 +21,11 @@ export function CartProduct({ product }: iCartProductProps) {
           <div className="modal__buttons">
             <button>-</button>
             <span>{product.quantity}</span>
-            <button>+</button>
+            <button onClick={() => addProduct(product)}>+</button>
           </div>
         </div>
       </div>
-      <button>
+      <button onClick={() => removeProduct(product.id)}>
         <img src={trashIcon} alt="ícone de lixeira" title="botão de excluir" />
       </button>
     </CartProductStyled>
