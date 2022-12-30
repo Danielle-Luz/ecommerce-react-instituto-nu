@@ -22,6 +22,12 @@ export function CartProduct({ product }: iCartProductProps) {
         </div>
         <div className="modal__info">
           <h3>{product.title}</h3>
+          <span>
+            {product.price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
           <div className="modal__buttons">
             <button onClick={() => reduceProductQuantity(product.id)}>-</button>
             <span>{product.quantity}</span>

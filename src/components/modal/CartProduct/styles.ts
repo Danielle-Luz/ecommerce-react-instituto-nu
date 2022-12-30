@@ -15,8 +15,8 @@ export const CartProductStyled = styled.li`
   }
 
   .modal__img-wrapper {
-    background-color: ${({theme : iTheme}) => theme.colors.grey[3]};
-    border-radius: ${({theme : iTheme}) => theme.radius};
+    background-color: ${({ theme: iTheme }) => theme.colors.grey[3]};
+    border-radius: ${({ theme: iTheme }) => theme.radius};
     max-width: 100px;
     width: 100%;
 
@@ -31,36 +31,43 @@ export const CartProductStyled = styled.li`
   .modal__info {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
     max-width: 130px;
     width: 100%;
 
     h3 {
-      color: ${({theme : iTheme}) => theme.colors.grey[0]};
-      font-size: 16px;
+      color: ${({ theme: iTheme }) => theme.colors.grey[0]};
+      font-size: 14px;
       font-weight: 700;
-      flex-grow: 1;
+    }
+
+    & > span {
+      color: ${({ theme: iTheme }) => theme.colors.primary[0]};
+      font-size: 12px;
+      font-weight: 600;
     }
   }
 
   .modal__buttons {
     align-items: center;
-    background-color: ${({theme : iTheme}) => theme.colors.grey[3]};
-    border-radius: ${({theme : iTheme}) => theme.radius};
+    background-color: ${({ theme: iTheme }) => theme.colors.grey[3]};
+    border-radius: ${({ theme: iTheme }) => theme.radius};
     display: flex;
     justify-content: space-between;
     max-width: 100px;
     width: 100%;
 
     button {
-      color: ${({theme : iTheme}) => theme.colors.secondary[0]};
+      color: ${({ theme: iTheme }) => theme.colors.secondary[0]};
       font-size: 22px;
       padding: 0 10px;
     }
 
     span {
-      background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
-      font-size: 14px;
+      background-color: ${({ theme: iTheme }) => theme.colors.grey[4]};
+      font-size: 12px;
       padding: 2px 15px;
     }
   }
-`
+`;
