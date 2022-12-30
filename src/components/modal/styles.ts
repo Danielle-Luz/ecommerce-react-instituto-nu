@@ -71,6 +71,7 @@ export const ModalStyled = styled.article`
   }
 
   ul {
+    border-bottom: 2px solid ${({theme : iTheme}) => theme.colors.grey[3]};
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -78,6 +79,7 @@ export const ModalStyled = styled.article`
     height: 100%;
     overflow-y: auto;
     padding: 20px 0;
+    margin: 0 20px;
     width: 100%;
   }
 `

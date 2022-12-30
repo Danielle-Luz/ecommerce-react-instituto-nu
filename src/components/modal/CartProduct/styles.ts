@@ -5,7 +5,6 @@ export const CartProductStyled = styled.li`
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
   width: 100%;
 
   & > div {
