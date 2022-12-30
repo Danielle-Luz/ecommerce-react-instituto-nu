@@ -10,7 +10,7 @@ export function Home() {
   return (
     <>
       {togglemodal && <Modal />}
-      <Header setToggleModal={setToggleModal} togglemodal={togglemodal} />
+      <Header setToggleModal={setToggleModal} />
       <CatalogueWrapperStyled>
         <Catalogue />
       </CatalogueWrapperStyled>
