@@ -1,18 +1,22 @@
+import { useContext } from "react";
 import { iCatalogueProduct } from "../../../database/iCatalogueProduct";
+import { ProductContext } from "../../../providers/ProductProvider";
 import { CatalogueProductStyled } from "./styles";
 
 
-export function CatalogueProduct ({id, img, title, price, category} : iCatalogueProduct) {
+export function CatalogueProduct (product : iCatalogueProduct) {
+  const {addProduct} = useContext(ProductContext);
+
   return (
     <CatalogueProductStyled>
       <div>
-        <img src={img} alt={title} />
+        <img src={product.img} alt={product.title} />
       </div>
       <article>
-        <h2>{title}</h2>
-        <span className="catalogue-product__price">{price.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}</span>
-        <span className="catalogue-product__category">{category}</span>
-        <button>Adicionar</button>
+        <h2>{product.title}</h2>
+        <span className="catalogue-product__price">{product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}</span>
+        <span className="catalogue-product__category">{product.category}</span>
+        <button onClick={() => addProduct(product)}>Adicionar</button>
       </article>
     </CatalogueProductStyled>
   );
