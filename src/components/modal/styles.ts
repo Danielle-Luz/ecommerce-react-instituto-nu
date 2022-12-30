@@ -79,6 +79,7 @@ export const ModalStyled = styled.article`
     height: 100%;
     overflow-y: auto;
     padding: 20px 0;
+    padding-right: 20px;
     margin: 0 20px;
     width: 100%;
   }
