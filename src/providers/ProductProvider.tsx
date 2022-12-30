@@ -16,8 +16,12 @@ export function ProductProvider () {
 
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") as string) as iCartProduct[]);
 
-  function removeProduct () {
+  function removeProduct (removedProductId : number) {
+    const cartWithoutRemovedProduct = cart.filter( cartProduct => {
+      return cartProduct.id !== removedProductId;
+    })
 
+    setCart(cartWithoutRemovedProduct);
   }
 
   function addProduct (addedProduct : iCartProduct) {
