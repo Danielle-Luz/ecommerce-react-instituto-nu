@@ -38,9 +38,9 @@ export const ModalStyled = styled.article`
     }
   }
 
-  & > article {
+  .modal__content {
     display: flex;
-    min-height: 200px;
+    min-height: 150px;
 
     .modal__empty-message {
       align-items: center;
@@ -81,5 +81,25 @@ export const ModalStyled = styled.article`
     padding: 20px 0;
     margin: 0 20px;
     width: 100%;
+  }
+
+  .modal__total {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px 20px;
+    max-width: 100%;
+
+    h3 {
+      color: ${({theme : iTheme}) => theme.colors.grey[0]};
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    span {
+      color: ${({theme : iTheme}) => theme.colors.grey[1]};
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 `

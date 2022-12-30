@@ -20,7 +20,7 @@ export function Modal({ setToggleModal }: iModalProps) {
             <img src={closeIcon} alt="ícone de fechamento" title="ícone de x" />
           </button>
         </header>
-        <article>
+        <article className="modal__content">
           {cart?.length === 0 ? (
             <div className="modal__empty-message">
               <div>
@@ -35,6 +35,10 @@ export function Modal({ setToggleModal }: iModalProps) {
               ))}
             </ul>
           )}
+        </article>
+        <article className="modal__total">
+          <h3>Total</h3>
+          <span>{cart.reduce((total, cartProduct) => total += cartProduct.price, 0).toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}</span>
         </article>
       </ModalStyled>
     </ModalWrapperStyled>
