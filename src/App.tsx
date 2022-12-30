@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { Home } from "./pages/home";
+import { ProductProvider } from "./providers/ProductProvider";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { theme } from "./styles/theme";
 
@@ -8,7 +9,9 @@ export function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Home />
+        <ProductProvider>
+          <Home />
+        </ProductProvider>
       </ThemeProvider>
     </>
   );
