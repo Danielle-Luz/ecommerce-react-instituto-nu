@@ -8,6 +8,10 @@ export const CatalogueProductStyled = styled.li`
 
   &:hover {
     border-color: ${({theme : iTheme}) => theme.colors.primary[0]};
+
+    button {
+      background-color: ${({theme : iTheme}) => theme.colors.primary[0]};
+    }
   }
   
   div {
@@ -41,7 +45,17 @@ export const CatalogueProductStyled = styled.li`
   article {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
+  }
+
+  button {
+    background-color: ${({theme : iTheme}) => theme.colors.grey[2]};
+    color: ${({theme : iTheme}) => theme.colors.grey[4]};
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 30px;
+    transition: 500ms;
+    width: fit-content;
   }
 `

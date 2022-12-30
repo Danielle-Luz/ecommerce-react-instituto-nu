@@ -6,8 +6,8 @@ export function Catalogue () {
   return (
     <CatalogueStyled>
       {
-        products.map( ({img, title, price, category}) => {
-          return <CatalogueProduct img={img} title={title} price={price} category={category} />
+        products.map( ({id, img, title, price, category}) => {
+          return <CatalogueProduct key={id} id={id} img={img} title={title} price={price} category={category} />
         })
       }
     </CatalogueStyled>
