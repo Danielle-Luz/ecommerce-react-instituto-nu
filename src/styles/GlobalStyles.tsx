@@ -15,4 +15,8 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: ${({theme : iTheme}) => theme.radius};
     cursor: pointer;
   }
+
+  body {
+    position: relative;
+  }
 `

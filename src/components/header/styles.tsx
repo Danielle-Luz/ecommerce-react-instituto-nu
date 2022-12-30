@@ -4,6 +4,8 @@ import { theme } from "../../styles/theme";
 export const HeaderStyled = styled.header`
   background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
   padding: 28px 0;
+  position: sticky;
+  top: 0;
 
   h1 {
     color: ${({theme : iTheme}) => theme.colors.grey[0]};
