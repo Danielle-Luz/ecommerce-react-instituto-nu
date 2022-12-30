@@ -11,7 +11,7 @@ export const ModalWrapperStyled = styled.div`
   position: fixed;
   width: 100%;
   z-index: 1;
-  `
+`
 
 export const ModalStyled = styled.article`
   background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
@@ -27,21 +27,43 @@ export const ModalStyled = styled.article`
     justify-content: space-between;
     padding: 20px;
 
+    h2 {
+      color: ${({theme : iTheme}) => theme.colors.grey[4]};
+      font-size: 16px;
+      font-weight: 700;
+    }
+
     button {
       height: 14px;
     }
   }
 
-  h2 {
-    color: ${({theme : iTheme}) => theme.colors.grey[4]};
-    font-size: 16px;
-    font-weight: 700;
-  }
-  
   & > article {
-    min-height: 300px;
+    align-items: center;
+    display: flex;
+    min-height: 200px;
     max-height: 600px;
+    justify-content: center;
     height: 100%;
     overflow-y: auto;
+
+    .modal__empty-message {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      h3 {
+        color: ${({theme : iTheme}) => theme.colors.grey[0]};
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      p {
+        color: ${({theme : iTheme}) => theme.colors.grey[1]};
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
   }
 `

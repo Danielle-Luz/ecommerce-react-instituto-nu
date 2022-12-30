@@ -1,7 +1,11 @@
 import { ModalStyled, ModalWrapperStyled } from "./styles";
 import closeIcon from "../../assets/img/icons/close.svg";
+import { useContext } from "react";
+import { ProductContext } from "../../providers/ProductProvider";
 
 export function Modal() {
+  const {cart} = useContext(ProductContext);
+
   return (
     <ModalWrapperStyled>
       <ModalStyled>
@@ -12,7 +16,17 @@ export function Modal() {
           </button>
         </header>
         <article>
-
+          {
+            cart?.length === 0 ?
+            (
+              <div className="modal__empty-message">
+                <h3>Sua sacola está vazia</h3>
+                <p>Adicione itens</p>
+              </div>
+            )
+            :
+            <></>
+          }
         </article>
       </ModalStyled>
     </ModalWrapperStyled>
