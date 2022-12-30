@@ -36,12 +36,12 @@ export function Modal({ setToggleModal }: iModalProps) {
             </ul>
           )}
         </article>
-        {cart?.length != 0 && (
+        {cart?.length !== 0 && (
           <article className="modal__total">
             <h3>Total</h3>
             <span>
               {cart
-                .reduce((total, cartProduct) => (total += cartProduct.price), 0)
+                .reduce((total, {price, quantity}) => (total += price * quantity), 0)
                 .toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",

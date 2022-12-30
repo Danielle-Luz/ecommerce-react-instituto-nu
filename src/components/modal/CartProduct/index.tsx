@@ -1,4 +1,7 @@
-import { iCartProduct, ProductContext } from "../../../providers/ProductProvider";
+import {
+  iCartProduct,
+  ProductContext,
+} from "../../../providers/ProductProvider";
 import { CartProductStyled } from "./styles";
 import { useContext } from "react";
 import trashIcon from "../../../assets/img/icons/trash.svg";
@@ -8,7 +11,8 @@ interface iCartProductProps {
 }
 
 export function CartProduct({ product }: iCartProductProps) {
-  const {addProduct, removeProduct, reduceProductQuantity} = useContext(ProductContext);
+  const { addProduct, removeProduct, reduceProductQuantity } =
+    useContext(ProductContext);
 
   return (
     <CartProductStyled>
