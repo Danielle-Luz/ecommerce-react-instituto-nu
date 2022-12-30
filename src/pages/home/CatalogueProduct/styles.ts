@@ -5,6 +5,11 @@ export const CatalogueProductStyled = styled.li`
   border: 1px solid ${({theme : iTheme}) => theme.colors.grey[2]};
 
   div {
+    img {
+      height: 150px;
+      width: 100%;
+    }
+    
     background-color: ${({theme : iTheme}) => theme.colors.grey[4]};
     width: 100%;
   }
