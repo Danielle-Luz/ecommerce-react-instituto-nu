@@ -32,6 +32,7 @@ export function ProductProvider ({children} : iProductProviderProps) {
     })
 
     setCart(cartWithoutRemovedProduct);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
   function addProduct (addedProduct : iCartProduct) {
@@ -43,6 +44,7 @@ export function ProductProvider ({children} : iProductProviderProps) {
 
     if (foundProductIndex === productNotFound) {
       setCart([...cart, addedProduct]);
+      localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       cart[foundProductIndex].quantity += 1;
     }
