@@ -7,7 +7,7 @@ interface iCartProduct extends iCatalogueProduct {
 
 interface iProductProviderValues {
   removeProduct(removedProductId: number) : void;
-  addProduct(addedProduct: iCartProduct) : void;
+  addProduct(addedProduct: iCatalogueProduct): void;
   cart : iCartProduct[];
 }
 
@@ -18,13 +18,7 @@ interface iProductProviderProps {
 export const ProductContext = createContext({} as iProductProviderValues);
 
 export function ProductProvider ({children} : iProductProviderProps) {
-  useEffect(() => {
-    if(!localStorage.getItem("cart")) {
-      localStorage.setItem("cart", JSON.stringify([]));
-    }
-  }, []);
-
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") as string) as iCartProduct[]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") as string) as iCartProduct[] || []);
 
   function removeProduct (removedProductId : number) {
     const cartWithoutRemovedProduct = cart.filter( cartProduct => {
@@ -32,22 +26,27 @@ export function ProductProvider ({children} : iProductProviderProps) {
     })
 
     setCart(cartWithoutRemovedProduct);
-    localStorage.setItem("cart", JSON.stringify(cart));
+
+    localStorage.setItem("cart", JSON.stringify(cartWithoutRemovedProduct));
   }
 
-  function addProduct (addedProduct : iCartProduct) {
-    const foundProductIndex = cart.findIndex(cartProduct => {
+  function addProduct (addedProduct : iCatalogueProduct) {
+    let newCart = [...cart];
+
+    const foundProductIndex = newCart.findIndex(cartProduct => {
       return cartProduct.id === addedProduct.id;
     })
 
     const productNotFound = -1;
 
     if (foundProductIndex === productNotFound) {
-      setCart([...cart, addedProduct]);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      newCart = [...newCart, {...addedProduct, quantity: 1}];
+      setCart(newCart);
     } else {
-      cart[foundProductIndex].quantity += 1;
+      newCart[foundProductIndex].quantity += 1;
     }
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
   }
 
   return (
