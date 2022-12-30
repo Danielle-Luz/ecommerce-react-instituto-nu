@@ -5,9 +5,19 @@ interface iCartProduct extends iCatalogueProduct {
   quantity : number;
 }
 
-export const ProductContext = createContext();
+interface iProductProviderValues {
+  removeProduct(removedProductId: number) : void;
+  addProduct(addedProduct: iCartProduct) : void;
+  cart : iCartProduct[];
+}
 
-export function ProductProvider () {
+interface iProductProviderProps {
+  children : React.ReactNode;
+}
+
+export const ProductContext = createContext({} as iProductProviderValues);
+
+export function ProductProvider ({children} : iProductProviderProps) {
   useEffect(() => {
     if(!localStorage.getItem("cart")) {
       localStorage.setItem("cart", JSON.stringify([]));
@@ -39,8 +49,8 @@ export function ProductProvider () {
   }
 
   return (
-    <ProductContext.Provider>
-
+    <ProductContext.Provider value={{removeProduct, addProduct, cart}}>
+      {children}
     </ProductContext.Provider>
   );
 }
