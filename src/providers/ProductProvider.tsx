@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { iCatalogueProduct } from "../database/iCatalogueProduct";
 
-interface iCartProduct extends iCatalogueProduct {
+export interface iCartProduct extends iCatalogueProduct {
   quantity : number;
 }
 
