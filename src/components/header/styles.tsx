@@ -6,6 +6,7 @@ export const HeaderStyled = styled.header`
   padding: 28px 0;
 
   h1 {
+    color: ${({theme : iTheme}) => theme.colors.grey[0]};
     font-size: 25px;
     font-family: 'Nunito', sans-serif;
   }
