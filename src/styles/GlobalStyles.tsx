@@ -13,5 +13,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     border: none;
     border-radius: ${({theme : iTheme}) => theme.radius};
+    cursor: pointer;
   }
 `
