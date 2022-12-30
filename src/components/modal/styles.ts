@@ -66,4 +66,8 @@ export const ModalStyled = styled.article`
       }
     }
   }
+
+  ul {
+    width: 100%;
+  }
 `
