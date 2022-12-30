@@ -2,6 +2,7 @@ import { ModalStyled, ModalWrapperStyled } from "./styles";
 import closeIcon from "../../assets/img/icons/close.svg";
 import { useContext } from "react";
 import { ProductContext } from "../../providers/ProductProvider";
+import { CartProduct } from "./CartProduct";
 
 interface iModalProps {
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,7 +30,9 @@ export function Modal({setToggleModal} : iModalProps) {
               </div>
             )
             :
-            <></>
+            <ul>
+              {cart.map( cartProduct => <CartProduct product={cartProduct} />)}
+            </ul>
           }
         </article>
       </ModalStyled>
