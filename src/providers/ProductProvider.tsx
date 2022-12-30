@@ -8,6 +8,7 @@ export interface iCartProduct extends iCatalogueProduct {
 interface iProductProviderValues {
   removeProduct(removedProductId: number) : void;
   addProduct(addedProduct: iCatalogueProduct): void;
+  reduceProductQuantity(reducedProductId: number): void;
   cart : iCartProduct[];
 }
 
@@ -19,6 +20,18 @@ export const ProductContext = createContext({} as iProductProviderValues);
 
 export function ProductProvider ({children} : iProductProviderProps) {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") as string) as iCartProduct[] || []);
+
+  function reduceProductQuantity(reducedProductId : number) {
+    const newCart = [...cart];
+    const reducedProductIndex = newCart.findIndex(cartProduct => cartProduct.id === reducedProductId);
+
+    if(newCart[reducedProductIndex].quantity > 1) {
+      newCart[reducedProductIndex].quantity -= 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(newCart);
+  }
 
   function removeProduct (removedProductId : number) {
     const cartWithoutRemovedProduct = cart.filter( cartProduct => {
@@ -41,16 +54,16 @@ export function ProductProvider ({children} : iProductProviderProps) {
 
     if (foundProductIndex === productNotFound) {
       newCart = [...newCart, {...addedProduct, quantity: 1}];
-      setCart(newCart);
     } else {
       newCart[foundProductIndex].quantity += 1;
     }
-
+    
+    setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
   }
 
   return (
-    <ProductContext.Provider value={{removeProduct, addProduct, cart}}>
+    <ProductContext.Provider value={{removeProduct, addProduct, reduceProductQuantity, cart}}>
       {children}
     </ProductContext.Provider>
   );

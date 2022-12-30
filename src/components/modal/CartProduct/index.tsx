@@ -8,7 +8,7 @@ interface iCartProductProps {
 }
 
 export function CartProduct({ product }: iCartProductProps) {
-  const {addProduct, removeProduct} = useContext(ProductContext);
+  const {addProduct, removeProduct, reduceProductQuantity} = useContext(ProductContext);
 
   return (
     <CartProductStyled>
@@ -19,7 +19,7 @@ export function CartProduct({ product }: iCartProductProps) {
         <div className="modal__info">
           <h3>{product.title}</h3>
           <div className="modal__buttons">
-            <button>-</button>
+            <button onClick={() => reduceProductQuantity(product.id)}>-</button>
             <span>{product.quantity}</span>
             <button onClick={() => addProduct(product)}>+</button>
           </div>

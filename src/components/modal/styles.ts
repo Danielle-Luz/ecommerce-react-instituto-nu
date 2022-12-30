@@ -87,7 +87,7 @@ export const ModalStyled = styled.article`
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin: 10px 20px 20px;
+    margin: 20px;
     max-width: 100%;
 
     h3 {
