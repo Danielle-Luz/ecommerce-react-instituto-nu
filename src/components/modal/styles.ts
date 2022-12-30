@@ -5,6 +5,7 @@ export const ModalWrapperStyled = styled.div`
   height: 100vh;
   position: fixed;
   width: 100%;
+  z-index: 1;
 `
 
 export const ModalStyled = styled.article`
