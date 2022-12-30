@@ -39,13 +39,8 @@ export const ModalStyled = styled.article`
   }
 
   & > article {
-    align-items: center;
     display: flex;
     min-height: 200px;
-    max-height: 600px;
-    justify-content: center;
-    height: 100%;
-    overflow-y: auto;
 
     .modal__empty-message {
       display: flex;
@@ -68,6 +63,13 @@ export const ModalStyled = styled.article`
   }
 
   ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-height: 400px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 0;
     width: 100%;
   }
 `
