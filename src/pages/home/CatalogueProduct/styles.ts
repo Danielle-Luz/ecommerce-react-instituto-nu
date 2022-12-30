@@ -3,7 +3,13 @@ import { theme } from "../../../styles/theme";
 
 export const CatalogueProductStyled = styled.li`
   border: 1px solid ${({theme : iTheme}) => theme.colors.grey[2]};
+  border-radius: ${({theme : iTheme}) => theme.radius};
+  overflow: hidden;
 
+  &:hover {
+    border-color: ${({theme : iTheme}) => theme.colors.primary[0]};
+  }
+  
   div {
     img {
       height: 150px;
