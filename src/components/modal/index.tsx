@@ -8,8 +8,8 @@ interface iModalProps {
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Modal({setToggleModal} : iModalProps) {
-  const {cart} = useContext(ProductContext);
+export function Modal({ setToggleModal }: iModalProps) {
+  const { cart } = useContext(ProductContext);
 
   return (
     <ModalWrapperStyled>
@@ -21,19 +21,20 @@ export function Modal({setToggleModal} : iModalProps) {
           </button>
         </header>
         <article>
-          {
-            cart?.length === 0 ?
-            (
-              <div className="modal__empty-message">
+          {cart?.length === 0 ? (
+            <div className="modal__empty-message">
+              <div>
                 <h3>Sua sacola está vazia</h3>
                 <p>Adicione itens</p>
               </div>
-            )
-            :
+            </div>
+          ) : (
             <ul>
-              {cart.map( cartProduct => <CartProduct product={cartProduct} />)}
+              {cart.map((cartProduct) => (
+                <CartProduct product={cartProduct} />
+              ))}
             </ul>
-          }
+          )}
         </article>
       </ModalStyled>
     </ModalWrapperStyled>

@@ -43,10 +43,18 @@ export const ModalStyled = styled.article`
     min-height: 200px;
 
     .modal__empty-message {
+      align-items: center;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      min-height: 100%;
+      justify-content: center;
       text-align: center;
+      width: 100%;
+      
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
 
       h3 {
         color: ${({theme : iTheme}) => theme.colors.grey[0]};
